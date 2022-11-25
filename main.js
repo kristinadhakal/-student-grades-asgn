@@ -51,26 +51,32 @@ function mainMenu() {
 function firstTo40() {
   // Set the grade of the first student to 40.
   outputEl.innerHTML = "First grade to 40";
+  grades[0] = 40;
 }
 
 function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
+  grades[5] = 50;
 }
 
 function randomTo100() {
   // Set the grade of a random student to 100.
   outputEl.innerHTML = "Random grade to 100";
+  let ranIndex = randomInt(0, grades.length);
+  grades[ranIndex] = 100;
 }
 
 function addRandomGrade() {
   // Add a random grade between 0 and 100 to the end of the array.
   outputEl.innerHTML = "Add random grade";
+  grades.push(Math.random() * 100);
 }
 
 function removeLastGrade() {
   // Remove the last grade.
   outputEl.innerHTML = "Remove the last grade";
+  grades.pop();
 }
 
 function countBelow50() {
@@ -86,13 +92,14 @@ function lowGradesTo50() {
 function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
+  let ranIndex = randomInt(0, grades.length);
+  grades[] += 10;
 }
 
 function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
 }
-
 
 // Function to draw current state of grades array
 function drawArray() {
