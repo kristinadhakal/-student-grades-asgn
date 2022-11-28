@@ -7,7 +7,7 @@ let goBtnEl = document.getElementById("go");
 let menuEl = document.getElementById("menu");
 
 // Global Variable
-let grades = [60, 70, 80, 65, 90, 83];
+let grades = [60, 70, 80, 65, 90, 83, 25, 60, 70];
 let maxGrade = 100; // grade values should be b/t 0 and max
 
 // Display Data
@@ -57,7 +57,7 @@ function firstTo40() {
 function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
-  grades[5] = 50;
+  grades[grades.length - 1] = 50;
 }
 
 function randomTo100() {
@@ -82,23 +82,41 @@ function removeLastGrade() {
 function countBelow50() {
   // Count how many grades are below 50.  Output the result.
   outputEl.innerHTML = "Count grades below 50";
+  let count = 0;
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      count++;
+    }
+  }
+  outputEl.innerHTML = count;
 }
+
+// if gardes at postion 0 is less than 50 add a count
 
 function lowGradesTo50() {
   // Change all grades that are below 50 to be equal to 50.
   outputEl.innerHTML = "Change low grades to 50";
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      grades[i] = 50;
+    }
+  }
 }
 
 function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
-  let ranIndex = randomInt(0, grades.length);
-  grades[] += 10;
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] *= 1.1;
+  }
 }
 
 function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] *= 0.9;
+  }
 }
 
 // Function to draw current state of grades array
@@ -111,3 +129,5 @@ function drawArray() {
   }
   containerEl.innerHTML = outputStr;
 }
+
+countBelow50();
